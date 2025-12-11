@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BHARAT TOUR & TRAVELS - Ayodhya Car Rental</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* Custom Animations */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+        
+        /* Scroll Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #FF2C8A, #7A1FA2);
+        }
+        .gradient-bg {
+            background-image: linear-gradient(to right, #FF2C8A, #7A1FA2);
+        }
+        /* Hide scrollbar for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased min-h-screen flex flex-col pt-16">
+
+    <!-- Sticky Header -->
+    <header id="main-header" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm py-4 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex flex-col cursor-pointer" onclick="navigateTo('home')">
+                <span class="text-xl md:text-2xl font-extrabold font-montserrat gradient-text">
+                    BHARAT
+                </span>
+                <span class="text-xs tracking-widest font-bold text-gray-600">TOUR & TRAVELS</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <button onclick="navigateTo('home')" class="nav-link font-semibold text-[#FF2C8A] hover:text-[#7A1FA2] transition-colors">Home</button>
+                <button onclick="navigateTo('about')" class="nav-link font-semibold text-gray-700 hover:text-[#7A1FA2] transition-colors">About</button>
+                <button onclick="navigateTo('services')" class="nav-link font-semibold text-gray-700 hover:text-[#7A1FA2] transition-colors">Services</button>
+                <button onclick="navigateTo('fleet')" class="nav-link font-semibold text-gray-700 hover:text-[#7A1FA2] transition-colors">Fleet</button>
+                <button onclick="navigateTo('contact')" class="nav-link font-semibold text-gray-700 hover:text-[#7A1FA2] transition-colors">Contact</button>
+                <a href="tel:9984291310" class="gradient-bg text-white px-4 py-2 rounded-full font-bold shadow-md hover:shadow-lg flex items-center gap-2 text-sm">
+                    <i data-lucide="phone" class="w-4 h-4"></i> 9984291310
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute top-full left-0 w-full shadow-lg border-t flex flex-col p-4 gap-4">
+            <button onclick="navigateTo('home')" class="text-left font-semibold py-2">Home</button>
+            <button onclick="navigateTo('about')" class="text-left font-semibold py-2">About</button>
+            <button onclick="navigateTo('services')" class="text-left font-semibold py-2">Services</button>
+            <button onclick="navigateTo('fleet')" class="text-left font-semibold py-2">Fleet</button>
+            <button onclick="navigateTo('contact')" class="text-left font-semibold py-2">Contact</button>
+            <a href="tel:9984291310" class="gradient-bg text-white text-center py-3 rounded-full font-bold">Call 9984291310</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow">
+        
+        <!-- HOME PAGE VIEW -->
+        <div id="view-home" class="page-view block">
+            
+            <!-- Hero Section -->
+            <section class="relative h-[600px] md:h-[800px] flex items-center justify-center overflow-hidden bg-gray-900">
+                <!-- Slider Images (JS will toggle opacity) -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1920x800/222/FFF?text=Travel+Image'">
+                </div>
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                    <img src="https://images.unsplash.com/photo-1590059593437-3323207b1442?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover">
+                </div>
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-pink-900/60 mix-blend-multiply"></div>
+
+                <!-- Content -->
+                <div class="relative z-10 text-center text-white px-4 max-w-4xl animate-fade-in-up">
+                    <h1 class="text-4xl md:text-6xl font-bold font-montserrat mb-6 drop-shadow-lg leading-tight">
+                        BHARAT TOUR & TRAVELS<br/>
+                        <span class="text-2xl md:text-3xl font-normal opacity-90 block mt-2">Car Rental & Travel Services in Ayodhya</span>
+                    </h1>
+                    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-gray-100">
+                        Innova, Traveller, Dzire, Ertiga & Luxury Buses Available for Rent. Hotel Reservation Available.
+                    </p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <a href="tel:9984291310" class="gradient-bg text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform flex items-center justify-center gap-2">
+                            <i data-lucide="phone" class="w-5 h-5"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/919984291310" target="_blank" class="bg-white text-[#7A1FA2] px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 hover:-translate-y-1 transition-transform flex items-center justify-center gap-2">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Book on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section (Animated) -->
+            <section class="reveal py-10 bg-white shadow-sm relative z-20 -mt-10 max-w-6xl mx-auto rounded-xl grid grid-cols-2 md:grid-cols-4 gap-4 px-4 border border-gray-100">
+                <div class="text-center p-4">
+                    <i data-lucide="users" class="w-8 h-8 mx-auto text-[#FF2C8A] mb-2"></i>
+                    <div class="text-2xl font-bold text-gray-800">5000+</div>
+                    <div class="text-sm text-gray-500 font-medium">Happy Clients</div>
+                </div>
+                <div class="text-center p-4">
+                    <i data-lucide="map" class="w-8 h-8 mx-auto text-[#FF2C8A] mb-2"></i>
+                    <div class="text-2xl font-bold text-gray-800">100+</div>
+                    <div class="text-sm text-gray-500 font-medium">Destinations</div>
+                </div>
+                <div class="text-center p-4">
+                    <i data-lucide="car" class="w-8 h-8 mx-auto text-[#FF2C8A] mb-2"></i>
+                    <div class="text-2xl font-bold text-gray-800">50+</div>
+                    <div class="text-sm text-gray-500 font-medium">Luxury Vehicles</div>
+                </div>
+                <div class="text-center p-4">
+                    <i data-lucide="calendar" class="w-8 h-8 mx-auto text-[#FF2C8A] mb-2"></i>
+                    <div class="text-2xl font-bold text-gray-800">12 Yrs</div>
+                    <div class="text-sm text-gray-500 font-medium">Experience</div>
+                </div>
+            </section>
+
+            <!-- Home Services Preview (Animated) -->
+            <section class="reveal py-20 px-4 bg-white">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-12 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase font-montserrat gradient-text">Our Premium Services</h2>
+                        <div class="h-1 w-24 gradient-bg mx-auto rounded-full mb-4"></div>
+                        <p class="text-gray-600 max-w-2xl mx-auto">Choose from our wide range of comfortable vehicles and travel services tailored for your needs.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600?text=Innova'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2"><i data-lucide="car" class="text-[#FF2C8A]"></i> Innova Rental</h3>
+                                <p class="text-gray-600 text-sm">Experience luxury and comfort with our Innova Crysta fleet.</p>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1616400619275-c08197f23c72?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600?text=Traveller'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2"><i data-lucide="users" class="text-[#FF2C8A]"></i> Tempo Traveller</h3>
+                                <p class="text-gray-600 text-sm">Best for group tours, pilgrimage groups, and family functions.</p>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600?text=Bus'">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2"><i data-lucide="bus" class="text-[#FF2C8A]"></i> Luxury Bus</h3>
+                                <p class="text-gray-600 text-sm">Volvo Multi-axle, AC Sleeper, and 50-seater Tourist buses available.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Packages (Animated) -->
+            <section class="reveal py-20 px-4 bg-gray-50">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-12 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase font-montserrat gradient-text">Popular Tour Packages</h2>
+                        <div class="h-1 w-24 gradient-bg mx-auto rounded-full mb-4"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Package 1 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col hover:shadow-2xl transition-shadow duration-300">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1590059593437-3323207b1442?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                                <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-[#FF2C8A] flex items-center gap-1">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> 8-10 Hours
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Ayodhya Darshan</h3>
+                                <div class="space-y-1 mb-4 text-sm text-gray-600">
+                                    <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-[#7A1FA2]"></i> Ram Janmabhoomi</p>
+                                    <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-[#7A1FA2]"></i> Hanumangarhi</p>
+                                </div>
+                                <div class="mt-auto flex items-center justify-between pt-4 border-t border-gray-100">
+                                    <span class="text-lg font-bold text-[#7A1FA2]">Starting ₹2500</span>
+                                    <a href="https://wa.me/919984291310?text=Enquiry for Ayodhya Darshan" class="text-sm font-bold text-[#FF2C8A] hover:underline">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Package 2 -->
+                         <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col hover:shadow-2xl transition-shadow duration-300">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                                <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-[#FF2C8A] flex items-center gap-1">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> 3 Days
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Ayodhya - Varanasi - Prayagraj</h3>
+                                <div class="space-y-1 mb-4 text-sm text-gray-600">
+                                    <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-[#7A1FA2]"></i> Kashi Vishwanath</p>
+                                    <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-[#7A1FA2]"></i> Triveni Sangam</p>
+                                </div>
+                                <div class="mt-auto flex items-center justify-between pt-4 border-t border-gray-100">
+                                    <span class="text-lg font-bold text-[#7A1FA2]">Call for Quote</span>
+                                    <a href="https://wa.me/919984291310?text=Enquiry for Outstation Trip" class="text-sm font-bold text-[#FF2C8A] hover:underline">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Package 3 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col hover:shadow-2xl transition-shadow duration-300">
+                            <div class="h-48 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                                <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-[#FF2C8A] flex items-center gap-1">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> Pickup/Drop
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Airport Drops</h3>
+                                <div class="space-y-1 mb-4 text-sm text-gray-600">
+                                    <p class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3 h-3 text-[#7A1FA2]"></i> Lucknow/Ayodhya Airport</p>
+                                    <p class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3 h-3 text-[#7A1FA2]"></i> Punctual Service</p>
+                                </div>
+                                <div class="mt-auto flex items-center justify-between pt-4 border-t border-gray-100">
+                                    <span class="text-lg font-bold text-[#7A1FA2]">Fixed Rates</span>
+                                    <a href="https://wa.me/919984291310?text=Enquiry for Airport Drop" class="text-sm font-bold text-[#FF2C8A] hover:underline">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Process Section (Animated) -->
+            <section class="reveal py-20 px-4 bg-white">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase font-montserrat gradient-text">How It Works</h2>
+                        <div class="h-1 w-24 gradient-bg mx-auto rounded-full mb-4"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-8 relative">
+                        <!-- Line for desktop -->
+                        <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-100 -z-10 transform -translate-y-1/2"></div>
+                        
+                        <div class="flex flex-col items-center text-center bg-white p-4">
+                            <div class="w-16 h-16 rounded-full gradient-bg text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">01</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">Select Vehicle</h4>
+                            <p class="text-gray-600 text-sm max-w-xs">Choose the perfect car or bus for your group size.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center bg-white p-4">
+                            <div class="w-16 h-16 rounded-full gradient-bg text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">02</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">Share Details</h4>
+                            <p class="text-gray-600 text-sm max-w-xs">Fill the form or WhatsApp us your travel dates.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center bg-white p-4">
+                            <div class="w-16 h-16 rounded-full gradient-bg text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">03</div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">Enjoy Ride</h4>
+                            <p class="text-gray-600 text-sm max-w-xs">Get driver details and enjoy a safe journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Section & Map (Animated) -->
+            <section class="reveal py-20 px-4 bg-gray-50 relative">
+                <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+                    <!-- Form -->
+                    <div class="lg:w-1/2">
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-[#FF2C8A]">
+                            <h3 class="text-2xl font-bold mb-6 text-gray-800">Book Your Ride</h3>
+                            <form onsubmit="handleBooking(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input required id="book-name" placeholder="Your Name" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-[#FF2C8A] outline-none">
+                                    <input required id="book-mobile" placeholder="Mobile Number" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-[#FF2C8A] outline-none">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input required id="book-pickup" placeholder="Pickup Location" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-[#FF2C8A] outline-none">
+                                    <input required id="book-drop" placeholder="Drop Location" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-[#FF2C8A] outline-none">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input required type="datetime-local" id="book-date" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-[#FF2C8A] outline-none">
+                                    <select id="book-car" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-[#FF2C8A] outline-none">
+                                        <option disabled selected>Select Vehicle</option>
+                                        <optgroup label="Cars & SUVs">
+                                            <option>Innova Crysta</option>
+                                            <option>Toyota Fortuner</option>
+                                            <option>Mahindra Scorpio</option>
+                                            <option>Mahindra XUV700</option>
+                                            <option>Tata Safari</option>
+                                            <option>Hyundai Creta</option>
+                                            <option>Mahindra Bolero</option>
+                                            <option>Maruti Ertiga</option>
+                                            <option>Maruti Ciaz</option>
+                                            <option>Swift Dzire</option>
+                                            <option>Honda City</option>
+                                            <option>Toyota Etios</option>
+                                        </optgroup>
+                                        <optgroup label="Buses & Travellers">
+                                            <option>Tempo Traveller (12/17/26)</option>
+                                            <option>Force Urbania (Luxury Van)</option>
+                                            <option>Force Toofan (Maxi Cab)</option>
+                                            <option>Volvo / Mercedes Bus</option>
+                                            <option>AC Sleeper Bus</option>
+                                            <option>Mini Bus (SML)</option>
+                                            <option>Eicher Skyline (Budget Bus)</option>
+                                            <option>Tourist Bus (50 Seater)</option>
+                                            <option>Tata Winger</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <input id="book-passengers" placeholder="Number of Passengers" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-[#FF2C8A] outline-none">
+                                <button type="submit" class="w-full gradient-bg text-white py-3 rounded-full font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2 transform hover:scale-105 transition-transform">
+                                    <i data-lucide="message-circle" class="w-5 h-5"></i> Book via WhatsApp
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Location Info (With Real Map) -->
+                    <div class="lg:w-1/2 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Visit Us at Naya Ghat</h3>
+                        <p class="text-gray-600 mb-6">We operate near the Bus Stop at Naya Ghat, Ayodhya for easy pickup and drop. Come visit our office for personalized tour packages.</p>
+                        <!-- Real Google Map Embed -->
+                        <div class="bg-gray-200 w-full h-80 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.479277747834!2d82.20302831500356!3d26.79153398317997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07937e6d28ad%3A0x43063a87071e6d7!2sNaya%20Ghat%2C%20Ayodhya%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1623456789012!5m2!1sen!2sin" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Customer Reviews (Restored & Animated) -->
+             <section class="reveal py-16 px-4 bg-white">
+                <div class="max-w-4xl mx-auto text-center">
+                  <h2 class="text-3xl font-bold mb-10 font-montserrat gradient-text">What Our Customers Say</h2>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left border-l-4 border-[#FF2C8A] hover:bg-gray-100 transition-colors">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 italic">"Excellent service! The Innova was brand new and the driver was very polite. Highly recommended for Ayodhya darshan."</p>
+                        <p class="font-bold text-gray-800">- Rahul Sharma</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left border-l-4 border-[#7A1FA2] hover:bg-gray-100 transition-colors">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 italic">"We booked a Traveller for our family trip. Best rates in Ayodhya and very punctual service."</p>
+                        <p class="font-bold text-gray-800">- Priya Patel</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left border-l-4 border-[#FF2C8A] hover:bg-gray-100 transition-colors">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 italic">"Seamless booking process via WhatsApp. The car arrived on time at the airport. 5 stars!"</p>
+                        <p class="font-bold text-gray-800">- Amit Verma</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md text-left border-l-4 border-[#7A1FA2] hover:bg-gray-100 transition-colors">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 italic">"Very cooperative staff. They helped us with hotel booking as well. Truly a complete travel solution."</p>
+                        <p class="font-bold text-gray-800">- Suresh Gupta</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+        </div>
+        <!-- END HOME VIEW -->
+
+
+        <!-- ABOUT PAGE VIEW -->
+        <div id="view-about" class="page-view hidden py-20 px-4 max-w-4xl mx-auto">
+            <div class="mb-12 text-left">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase font-montserrat gradient-text">About Bharat Tour & Travels</h2>
+                <div class="h-1 w-24 gradient-bg rounded-full mb-4"></div>
+                <p class="text-gray-600 max-w-2xl">Serving Ayodhya with Pride and Devotion</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1590059593437-3323207b1442?auto=format&fit=crop&q=80&w=1920" class="w-full h-64 md:h-96 object-cover rounded-2xl shadow-xl mb-10">
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+                <p class="text-lg"><strong>Bharat Tour & Travels</strong> is a distinguished name in the travel and tourism sector of Ayodhya. Established with the vision of providing hassle-free and comfortable travel experiences, we have grown to become the most trusted car rental service near Naya Ghat.</p>
+                <div class="grid md:grid-cols-2 gap-8 py-8">
+                    <div class="bg-pink-50 p-6 rounded-xl border border-pink-100">
+                        <h3 class="text-xl font-bold text-[#FF2C8A] mb-3">Our Mission</h3>
+                        <p>To provide safe, reliable, and affordable transportation to every visitor in Ayodhya, ensuring they leave with happy memories.</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-100">
+                        <h3 class="text-xl font-bold text-[#7A1FA2] mb-3">Our Vision</h3>
+                        <p>To be the leading travel partner in Uttar Pradesh, known for our modern fleet and customer-centric approach.</p>
+                    <!-- Bolero (Existing) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Bolero'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Mahindra Bolero</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Rugged SUV</span> <span>7 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Bolero" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Safari (New) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Safari'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Tata Safari</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Luxury SUV</span> <span>6/7 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Tata Safari" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Creta (New) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Creta'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Hyundai Creta</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Premium SUV</span> <span>5 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Hyundai Creta" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- City (Existing) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1617430638531-41793722a468?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=HondaCity'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Honda City</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Premium Sedan</span> <span>4+1 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Honda City" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Ciaz (New) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Ciaz'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Maruti Ciaz</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Prem. Sedan</span> <span>4+1 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Maruti Ciaz" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Dzire (Existing) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Innova'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Innova Crysta</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>SUV</span> <span>6+1 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Innova Crysta" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- XUV700 (New) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1628173497626-d5336e3e55c3?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=XUV700'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Mahindra XUV700</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Luxury SUV</span> <span>7 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking XUV700" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                     <!-- Fortuner -->
+                     <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Fortuner'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Toyota Fortuner</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Premium SUV</span> <span>7 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Toyota Fortuner" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Scorpio -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Scorpio'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Mahindra Scorpio</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>SUV</span> <span>7 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Mahindra Scorpio" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Bolero (New) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Bolero'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Mahindra Bolero</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Rugged SUV</span> <span>7 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Bolero" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- City (New) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1617430638531-41793722a468?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=HondaCity'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Honda City</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Premium Sedan</span> <span>4+1 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Honda City" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Dzire -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Dzire'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Swift Dzire</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Sedan</span> <span>4+1 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Swift Dzire" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Ertiga -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Ertiga'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Maruti Ertiga</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>MUV</span> <span>6+1 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Ertiga" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                    <!-- Etios -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Etios'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Toyota Etios</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Sedan</span> <span>4+1 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Toyota Etios" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Car</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Buses -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 pl-4 border-l-4 border-[#7A1FA2]">Luxury Buses & Tempo Travellers</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <!-- Tempo Traveller -->
+                     <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1616400619275-c08197f23c72?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Traveller'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Tempo Traveller</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Minibus</span> <span>12/17/26 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Tempo Traveller" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Van</a>
+                        </div>
+                    </div>
+                     <!-- Urbania -->
+                     <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Urbania'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Force Urbania</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Luxury Van</span> <span>10-17 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Force Urbania" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Van</a>
+                        </div>
+                    </div>
+                    <!-- Toofan (New) -->
+                     <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Toofan'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Force Toofan</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Maxi Cab</span> <span>10-12 Seats</span> <span>Non-AC</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Force Toofan" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Van</a>
+                        </div>
+                    </div>
+                    <!-- Volvo -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Volvo'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Volvo / Mercedes</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Luxury Bus</span> <span>45 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Volvo Bus" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Bus</a>
+                        </div>
+                    </div>
+                    <!-- Sleeper -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Sleeper'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">AC Sleeper Coach</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Sleeper</span> <span>30 Berths</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Sleeper Bus" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Bus</a>
+                        </div>
+                    </div>
+                    <!-- Mini Bus -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1557223562-6c77ef16210f?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=MiniBus'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Mini Bus (SML)</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Bus</span> <span>22/25 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Mini Bus" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Bus</a>
+                        </div>
+                    </div>
+                    <!-- Winger -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Winger'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Tata Winger</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Mini Van</span> <span>9-13 Seats</span> <span>AC: Yes</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Tata Winger" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Van</a>
+                        </div>
+                    </div>
+                    <!-- Eicher Skyline (New) -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=Skyline'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Eicher Skyline</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>School/Staff Bus</span> <span>30-40 Seats</span> <span>Non-AC</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking Eicher Skyline" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Bus</a>
+                        </div>
+                    </div>
+                    <!-- Tourist Bus -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1596732386129-9e2c45934371?auto=format&fit=crop&q=80&w=800" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600?text=TouristBus'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Tourist Bus (50 Seater)</h3>
+                            <div class="flex justify-between text-sm text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                                <span>Large Bus</span> <span>50 Seats</span> <span>AC/Non-AC</span>
+                            </div>
+                            <a href="https://wa.me/919984291310?text=Booking 50 Seater Bus" class="w-full gradient-bg text-white py-2 rounded-full font-bold flex justify-center">Book This Bus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE VIEW -->
+        <div id="view-contact" class="page-view hidden py-20 px-4 bg-gray-50">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="gradient-bg p-8 text-white text-center">
+                    <h1 class="text-3xl font-bold font-montserrat mb-2">Get In Touch</h1>
+                    <p>We are just a call away</p>
+                </div>
+                <div class="p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="p-3 bg-pink-100 text-[#FF2C8A] rounded-full"><i data-lucide="phone"></i></div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Phone</h3>
+                                    <p class="text-gray-600"><a href="tel:9984291310">9984291310</a></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="p-3 bg-green-100 text-green-600 rounded-full"><i data-lucide="message-circle"></i></div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">WhatsApp</h3>
+                                    <p class="text-gray-600"><a href="https://wa.me/919984291310">+91 9984291310</a></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="p-3 bg-purple-100 text-[#7A1FA2] rounded-full"><i data-lucide="map-pin"></i></div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Office Address</h3>
+                                    <p class="text-gray-600">Near Bus Stop, Naya Ghat, Ayodhya</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                             <h4 class="font-bold text-gray-800 mb-4">Book Directly</h4>
+                             <button onclick="navigateTo('home'); document.getElementById('book-name').focus()" class="gradient-bg text-white px-8 py-3 rounded-full font-bold shadow-md hover:shadow-lg">Go to Booking Form</button>
+                        </div>
+                    </div>
+                </div>
+                 <!-- FAQ -->
+                <div class="px-8 pb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">FAQ</h3>
+                    <div class="space-y-4">
+                        <details class="border-b border-gray-200 pb-4">
+                            <summary class="font-semibold text-gray-800 cursor-pointer flex justify-between">Is fuel included? <i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
+                            <p class="text-gray-600 text-sm mt-2">For local packages, fuel is usually included. For outstation trips, charges are per km basis.</p>
+                        </details>
+                        <details class="border-b border-gray-200 pb-4">
+                            <summary class="font-semibold text-gray-800 cursor-pointer flex justify-between">Do you provide AC buses? <i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
+                            <p class="text-gray-600 text-sm mt-2">Yes, we have Volvo, Mercedes, and Standard AC Tourist buses available.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white py-12 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-2xl font-bold font-montserrat mb-4">BHARAT TOUR & TRAVELS</h3>
+                <p class="opacity-90 mb-4">The most trusted car rental service in Ayodhya. Safe, comfortable, and memorable journeys.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 opacity-90">
+                    <li><button onclick="navigateTo('about')" class="hover:underline">About Us</button></li>
+                    <li><button onclick="navigateTo('services')" class="hover:underline">Services</button></li>
+                    <li><button onclick="navigateTo('fleet')" class="hover:underline">Fleet</button></li>
+                    <li><button onclick="navigateTo('contact')" class="hover:underline">Contact Us</button></li>
+                    <li class="pt-4 text-xs font-semibold uppercase tracking-wider opacity-70">Legal</li>
+                    <li><button onclick="openModal('terms-modal')" class="hover:underline text-sm">Terms & Conditions</button></li>
+                    <li><button onclick="openModal('privacy-modal')" class="hover:underline text-sm">Privacy Policy</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4">Contact Info</h4>
+                <p class="flex items-center gap-2 mb-2"><i data-lucide="phone" class="w-4 h-4"></i> 9984291310</p>
+                <p class="flex items-center gap-2 mb-2"><i data-lucide="message-circle" class="w-4 h-4"></i> +91 9984291310</p>
+                <p class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-1"></i> Near Bus Stop, Naya Ghat, Ayodhya</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-white/20 opacity-70 text-sm">
+            © 2024 Bharat Tour & Travels. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <a href="https://wa.me/919984291310" target="_blank" class="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform hover:scale-110 flex items-center justify-center">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+        </a>
+        <a href="tel:9984291310" class="bg-[#FF2C8A] text-white p-4 rounded-full shadow-lg hover:bg-[#E01E75] transition-transform hover:scale-110 flex items-center justify-center">
+            <i data-lucide="phone" class="w-7 h-7"></i>
+        </a>
+    </div>
+
+    <!-- Modals (Hidden by default) -->
+    
+    <!-- Terms Modal -->
+    <div id="terms-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeModal('terms-modal')"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4" id="modal-title">Terms & Conditions</h3>
+                    <div class="mt-2 text-sm text-gray-600 space-y-2 max-h-60 overflow-y-auto">
+                        <p>1. <strong>Booking Confirmation:</strong> Booking is confirmed only after receiving a 50% advance payment.</p>
+                        <p>2. <strong>Fuel & Tolls:</strong> For outstation trips, fuel, toll, and parking charges are excluded unless specified.</p>
+                        <p>3. <strong>Driver Charges:</strong> Driver night charges (after 10 PM) and daily allowance are applicable for outstation trips.</p>
+                        <p>4. <strong>Cancellation:</strong> 10% cancellation fee if cancelled 24 hours before trip. No refund for last-minute cancellations.</p>
+                        <p>5. <strong>Mileage:</strong> Kilometers are calculated from garage to garage.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-[#FF2C8A] text-base font-medium text-white hover:bg-[#E01E75] focus:outline-none sm:ml-3 sm:w-auto sm:text-sm" onclick="closeModal('terms-modal')">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeModal('privacy-modal')"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Privacy Policy</h3>
+                    <div class="mt-2 text-sm text-gray-600 space-y-2">
+                        <p><strong>Data Usage:</strong> We collect your Name and Phone Number solely for the purpose of coordinating your trip.</p>
+                        <p><strong>No Sharing:</strong> We do not sell or share your personal data with any third-party marketing agencies.</p>
+                        <p><strong>Security:</strong> All booking details are handled securely via WhatsApp encryption.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-[#7A1FA2] text-base font-medium text-white hover:bg-purple-800 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm" onclick="closeModal('privacy-modal')">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Navigation Logic
+        function navigateTo(pageId) {
+            // Hide all views
+            document.querySelectorAll('.page-view').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.page-view').forEach(el => el.classList.remove('block'));
+            
+            // Show target view
+            const target = document.getElementById(`view-${pageId}`);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('block');
+                window.scrollTo(0, 0);
+            }
+
+            // Update Header Styling for Active State (Optional visual cue)
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('text-[#FF2C8A]'));
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Hero Slider Logic
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        
+        function showSlides() {
+            slides.forEach(slide => slide.classList.remove('opacity-100'));
+            slides.forEach(slide => slide.classList.add('opacity-0'));
+            
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            
+            slides[slideIndex-1].classList.remove('opacity-0');
+            slides[slideIndex-1].classList.add('opacity-100');
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+        
+        // Start slider if on home page
+        if(slides.length > 0) {
+            showSlides();
+        }
+
+        // Scroll Animation Logic (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15 // Trigger when 15% visible
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        revealElements.forEach(el => revealObserver.observe(el));
+
+
+        // Modal Logic
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Booking Form Logic
+        function handleBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('book-name').value;
+            const mobile = document.getElementById('book-mobile').value;
+            const pickup = document.getElementById('book-pickup').value;
+            const drop = document.getElementById('book-drop').value;
+            const date = document.getElementById('book-date').value;
+            const car = document.getElementById('book-car').value;
+            const pax = document.getElementById('book-passengers').value;
+
+            const message = `*New Booking Request*%0A%0AName: ${name}%0AMobile: ${mobile}%0APickup: ${pickup}%0ADrop: ${drop}%0ADate: ${date}%0ACar: ${car}%0APassengers: ${pax}`;
+            
+            window.open(`https://wa.me/919984291310?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
