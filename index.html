@@ -39,11 +39,16 @@
                             },
                             animation: {
                                 'float': 'float 6s ease-in-out infinite',
+                                'fade-in': 'fadeIn 1s ease-out forwards',
                             },
                             keyframes: {
                                 float: {
                                     '0%, 100%': { transform: 'translateY(0)' },
                                     '50%': { transform: 'translateY(-10px)' },
+                                },
+                                fadeIn: {
+                                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                                    '100%': { opacity: '1', transform: 'translateY(0)' },
                                 }
                             }
                         }
@@ -81,16 +86,43 @@
             background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.8) 100%);
         }
 
-        /* Smooth Reveal */
+        /* Enhanced Slideable Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
         }
-        .reveal.active {
+        
+        /* Slide Up (Default) */
+        .reveal.slide-up {
+            transform: translateY(50px);
+        }
+        .reveal.slide-up.active {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Slide In From Left */
+        .reveal.slide-left {
+            transform: translateX(-50px);
+        }
+        .reveal.slide-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Slide In From Right */
+        .reveal.slide-right {
+            transform: translateX(50px);
+        }
+        .reveal.slide-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Staggered Delays for Grid Items */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
 
         .vehicle-card {
             transition: all 0.4s ease;
@@ -183,7 +215,6 @@
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://imgcdn.oto.com/large/gallery/roadtest/37/332/suzuki-ertiga-front-side-view-986838.jpg');"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1600');"></div>
-            <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('scorpio.jpg');"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://images.unsplash.com/photo-1619682817481-e994891cd1f5?auto=format&fit=crop&w=1600');"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://cabsules.com/wp-content/uploads/Book-25-Seater-Tempo-Traveller-in-Varanasi-1.jpeg');"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1600');"></div>
@@ -192,35 +223,7 @@
         <!-- Gradient Overlay -->
         <div class="absolute inset-0 z-10 hero-overlay"></div>
 
-        <!-- Main Content -->
-        <div class="relative z-20 container mx-auto px-4 flex flex-col items-center justify-center h-full pt-20">
-            <div class="animate-fade-in max-w-6xl">
-                <!-- Floating Badge -->
-                <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md mb-8 shadow-2xl animate-float">
-                    <span class="w-3 h-3 rounded-full bg-brandPink animate-pulse shadow-glow"></span>
-                    <span class="text-sm font-bold tracking-[0.2em] uppercase text-white/90">#1 Travel Agency in Ayodhya</span>
-                </div>
-                
-                <!-- Massive Headline -->
-                <h1 class="text-5xl md:text-7xl lg:text-9xl font-black mb-6 leading-none tracking-tighter drop-shadow-2xl font-heading text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-gray-400">
-                    EXPLORE <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandPink to-purple-400">AYODHYA</span>
-                </h1>
-                
-                <p class="text-xl md:text-3xl font-light mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
-                    Premium <span class="font-semibold text-white">Car, SUV & Bus Rentals</span> for Ram Mandir Darshan.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <a href="tel:9984291310" class="px-10 py-5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition shadow-[0_0_40px_rgba(255,255,255,0.3)] transform hover:-translate-y-2 flex items-center justify-center gap-3 min-w-[200px] text-lg">
-                        <i class="fa-solid fa-phone text-brandPink"></i> Book Now
-                    </a>
-                    <a href="https://wa.me/919984291310?text=I%20am%20interested%20in%20booking%20a%20vehicle." class="px-10 py-5 bg-[#25D366] text-white font-bold rounded-full shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:bg-[#20bd5a] transition transform hover:-translate-y-2 flex items-center justify-center gap-3 min-w-[200px] text-lg">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
+        <!-- Main Content (Removed) -->
 
         <!-- Scroll Down Indicator -->
         <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20 animate-bounce text-white/50 hidden md:block">
@@ -256,15 +259,6 @@
                     <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5">50+</h3>
                     <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Luxury Vehicles</p>
                 </div>
-
-                <!-- Item 4 -->
-                 <div class="flex flex-col items-center group">
-                    <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
-                        <i class="fa-regular fa-calendar-check text-3xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5">12 Yrs</h3>
-                    <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Experience</p>
-                </div>
             </div>
         </div>
     </section>
@@ -275,25 +269,27 @@
     <section id="about" class="pt-28 pb-24 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2 relative reveal">
+                <!-- Image Slides from Left -->
+                <div class="lg:w-1/2 relative reveal slide-left">
                     <div class="absolute -inset-4 bg-brand-gradient rounded-2xl opacity-10 transform rotate-3"></div>
-                    <img src="rammandir.png" alt="Ram Mandir Ayodhya" class="relative rounded-lg shadow-2xl w-full object-cover h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1594101895698-33306877477c?auto=format&fit=crop&w=800" alt="Ram Mandir Ayodhya" class="relative rounded-lg shadow-2xl w-full object-cover h-[500px]">
                     <div class="absolute bottom-8 -right-8 bg-white p-6 rounded-lg shadow-xl hidden md:block max-w-xs border-l-4 border-brandPurple">
                         <p class="font-bold text-gray-800 text-lg mb-1">"Jai Shree Ram"</p>
                         <p class="text-sm text-gray-500">We specialize in Darshan tours with experienced guides.</p>
                     </div>
                 </div>
-                <div class="lg:w-1/2 reveal">
+                <!-- Text Slides from Right -->
+                <div class="lg:w-1/2 reveal slide-right">
                     <span class="text-brandPink font-bold uppercase tracking-widest text-sm mb-2 block">About Our Agency</span>
                     <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">Your Journey, <br>Our <span class="text-brandPurple">Responsibility</span></h2>
                     <p class="text-gray-600 text-lg leading-relaxed mb-6">
                         Bharat Tour & Travels is Ayodhya's premier travel partner, dedicated to providing safe, spiritual, and comfortable journeys. Whether you are here for the <span class="font-bold text-gray-800">Ram Mandir Darshan</span> or an outstation family trip, our fleet is ready.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100"><i class="fa-solid fa-shield-halved text-brandPink mr-4 text-2xl"></i> Safe & Sanitized</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100"><i class="fa-solid fa-user-tie text-brandPink mr-4 text-2xl"></i> Expert Drivers</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100"><i class="fa-solid fa-indian-rupee-sign text-brandPink mr-4 text-2xl"></i> Best Prices</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100"><i class="fa-solid fa-clock text-brandPink mr-4 text-2xl"></i> 24/7 Support</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition"><i class="fa-solid fa-shield-halved text-brandPink mr-4 text-2xl"></i> Safe & Sanitized</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition"><i class="fa-solid fa-user-tie text-brandPink mr-4 text-2xl"></i> Expert Drivers</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition"><i class="fa-solid fa-indian-rupee-sign text-brandPink mr-4 text-2xl"></i> Best Prices</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition"><i class="fa-solid fa-clock text-brandPink mr-4 text-2xl"></i> 24/7 Support</div>
                     </div>
                     <a href="#contact" class="inline-block px-10 py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-brandPink transition shadow-lg">Read More</a>
                 </div>
@@ -307,7 +303,7 @@
         <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#7a1fa2 1px, transparent 1px); background-size: 20px 20px;"></div>
 
         <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16 reveal">
+            <div class="text-center mb-16 reveal slide-up">
                 <span class="text-brandPink font-bold uppercase tracking-widest text-sm">Our Premium Fleet</span>
                 <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Choose Your Comfort</h2>
                 <div class="w-24 h-1.5 bg-brand-gradient mx-auto mt-4 rounded-full"></div>
@@ -316,7 +312,7 @@
             <!-- Cars Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <!-- Vehicle Card Template (WordPress Style) -->
-                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal">
+                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-100">
                     <div class="relative overflow-hidden">
                         <img src="https://cdn1.smartprix.com/rx-iueIMKxHR-w1200-h1200/ueIMKxHR.webp" alt="Innova Crysta" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
                         <div class="absolute top-4 right-4 bg-brandPurple text-white text-xs font-bold px-3 py-1.5 rounded shadow">Best Seller</div>
@@ -339,7 +335,7 @@
                 </div>
 
                 <!-- Swift Dzire -->
-                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal">
+                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-200">
                     <div class="relative overflow-hidden">
                         <img src="https://images.pexels.com/photos/18316714/pexels-photo-18316714.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sedan" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
                         <div class="absolute top-4 right-4 bg-gray-800 text-white text-xs font-bold px-3 py-1.5 rounded shadow">Economy</div>
@@ -362,7 +358,7 @@
                 </div>
 
                 <!-- Ertiga -->
-                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal">
+                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-300">
                     <div class="relative overflow-hidden">
                         <img src="https://imgcdn.oto.com/large/gallery/roadtest/37/332/suzuki-ertiga-front-side-view-986838.jpg" alt="Ertiga" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
                     </div>
@@ -384,7 +380,7 @@
                 </div>
 
                  <!-- Fortuner -->
-                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal">
+                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-100">
                     <div class="relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800" alt="Fortuner" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
                          <div class="absolute top-4 right-4 bg-brandPink text-white text-xs font-bold px-3 py-1.5 rounded shadow">Luxury</div>
@@ -406,7 +402,7 @@
                 </div>
                 
                  <!-- Tempo Traveller -->
-                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal">
+                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-200">
                     <div class="relative overflow-hidden">
                         <img src="https://cabsules.com/wp-content/uploads/Book-25-Seater-Tempo-Traveller-in-Varanasi-1.jpeg" alt="Traveller" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
                          <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded shadow">Group</div>
@@ -428,7 +424,7 @@
                 </div>
 
                  <!-- Bus -->
-                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal">
+                <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-300">
                     <div class="relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800" alt="Luxury Bus" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
                     </div>
@@ -460,22 +456,22 @@
     <section class="py-24 bg-fixed bg-cover bg-center relative text-white" style="background-image: url('https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg');">
         <div class="absolute inset-0 bg-gray-900/80"></div>
         <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16 reveal">
+            <div class="text-center mb-16 reveal slide-up">
                 <h2 class="text-4xl font-extrabold mb-4">Why Travel With Bharat?</h2>
                 <p class="text-lg text-gray-300 max-w-2xl mx-auto">We don't just provide cars; we provide experiences. Trusted by thousands for our reliability.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal slide-left delay-100">
                     <i class="fa-solid fa-clock text-4xl text-brandPink mb-4"></i>
                     <h3 class="text-xl font-bold mb-2">Punctual Service</h3>
                     <p class="text-gray-300 text-sm">We value your time. Our drivers arrive 15 minutes before pickup.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal slide-up delay-200">
                     <i class="fa-solid fa-wallet text-4xl text-brandPink mb-4"></i>
                     <h3 class="text-xl font-bold mb-2">Transparent Billing</h3>
                     <p class="text-gray-300 text-sm">No hidden charges. What you see is what you pay.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal slide-right delay-300">
                     <i class="fa-solid fa-headset text-4xl text-brandPink mb-4"></i>
                     <h3 class="text-xl font-bold mb-2">24/7 Support</h3>
                     <p class="text-gray-300 text-sm">Our team is available round the clock to assist you.</p>
@@ -487,13 +483,13 @@
      <!-- Testimonials Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-             <div class="text-center mb-16 reveal">
+             <div class="text-center mb-16 reveal slide-up">
                 <span class="text-brandPink font-bold uppercase tracking-widest text-sm">Testimonials</span>
                 <h2 class="text-4xl font-extrabold text-gray-900 mt-2">What Our Clients Say</h2>
                 <div class="w-16 h-1.5 bg-brand-gradient mx-auto mt-4 rounded-full"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal relative">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal slide-left relative">
                     <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
                     <p class="text-gray-600 mb-6 relative z-10 italic">"Excellent service! We booked a Tempo Traveller for our family trip to Ayodhya. The vehicle was clean and the driver was very polite."</p>
                     <div class="flex items-center">
@@ -504,10 +500,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal relative">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal slide-up relative">
                     <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
                     <p class="text-gray-600 mb-6 relative z-10 italic">"Highly recommended for Outstation trips. We went to Kashi and Prayagraj. Smooth booking process via WhatsApp."</p>
-                     <div class="flex items-center">
+                      <div class="flex items-center">
                         <div class="w-10 h-10 bg-brandPurple rounded-full flex items-center justify-center text-white font-bold mr-3">A</div>
                         <div>
                             <h4 class="font-bold text-gray-800">Anjali Gupta</h4>
@@ -515,10 +511,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal relative">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal slide-right relative">
                     <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
                     <p class="text-gray-600 mb-6 relative z-10 italic">"Best prices in Ayodhya. I compared many agencies but Bharat Travels gave the best deal for Innova Crysta."</p>
-                     <div class="flex items-center">
+                      <div class="flex items-center">
                         <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold mr-3">V</div>
                         <div>
                             <h4 class="font-bold text-gray-800">Vikram Singh</h4>
@@ -533,14 +529,14 @@
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-             <div class="text-center mb-16 reveal">
+             <div class="text-center mb-16 reveal slide-up">
                 <h2 class="text-4xl font-extrabold text-gray-900">Photo Gallery</h2>
                  <p class="text-gray-500 mt-2">Glimpses of our fleet and happy journeys.</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal slide-up">
                  <!-- Images with hover zoom effect -->
                 <div class="overflow-hidden rounded-lg shadow-md group h-48">
-                     <img src="https://cdn1.smartprix.com/rx-iueIMKxHR-w1200-h1200/ueIMKxHR.webp" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Innova Crysta">
+                      <img src="https://cdn1.smartprix.com/rx-iueIMKxHR-w1200-h1200/ueIMKxHR.webp" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Innova Crysta">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-md group h-48">
                     <img src="https://images.pexels.com/photos/18316714/pexels-photo-18316714.jpeg?auto=compress&cs=tinysrgb&w=800" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Swift Dzire">
@@ -552,7 +548,7 @@
                     <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Fortuner">
                 </div>
                  <div class="overflow-hidden rounded-lg shadow-md group h-48">
-                    <img src="scorpio.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Scorpio">
+                    <img src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=1600" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Scorpio">
                 </div>
                  <div class="overflow-hidden rounded-lg shadow-md group h-48">
                     <img src="https://cabsules.com/wp-content/uploads/Book-25-Seater-Tempo-Traveller-in-Varanasi-1.jpeg" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Tempo">
@@ -561,7 +557,7 @@
                     <img src="https://5.imimg.com/data5/UB/TC/MY-23441034/30-seater-bus-for-rent-in-bangalore-32-seater-bus-hire-bangalore-1000x1000.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Bus">
                 </div>
                  <div class="overflow-hidden rounded-lg shadow-md group h-48">
-                    <img src="rammandir.png" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Temple">
+                    <img src="https://images.unsplash.com/photo-1594101895698-33306877477c?auto=format&fit=crop&w=800" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Temple">
                 </div>
             </div>
         </div>
@@ -570,7 +566,7 @@
     <!-- Booking Section -->
     <section id="contact" class="py-24 bg-white relative">
         <div class="container mx-auto px-4">
-            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row reveal">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row reveal slide-up">
                 <!-- Left: Form -->
                 <div class="lg:w-7/12 p-8 md:p-12">
                      <span class="text-brandPink font-bold uppercase tracking-widest text-sm">Get in Touch</span>
