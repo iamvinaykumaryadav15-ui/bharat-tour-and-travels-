@@ -162,16 +162,16 @@
 <body class="text-gray-700 bg-gray-50 flex flex-col min-h-screen">
 
     <!-- Fixed Header (Immersive) -->
-    <header class="fixed w-full top-0 z-50 transition-all duration-300 py-4" id="main-nav">
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 py-3 md:py-4" id="main-nav">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-16 h-16 rounded-xl bg-brand-gradient flex items-center justify-center text-white font-bold text-3xl shadow-lg group-hover:rotate-3 transition">
+            <a href="#" class="flex items-center gap-2 md:gap-3 group">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-brand-gradient flex items-center justify-center text-white font-bold text-2xl md:text-3xl shadow-lg group-hover:rotate-3 transition">
                     <i class="fa-solid fa-route"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-3xl font-black tracking-tight text-white leading-none logo-text drop-shadow-md">BHARAT</span>
-                    <span class="text-xs font-bold text-brandPink tracking-[0.2em] uppercase bg-white/10 px-2 rounded backdrop-blur-sm mt-1">Tour & Travels</span>
+                    <span class="text-2xl md:text-3xl font-black tracking-tight text-white leading-none logo-text drop-shadow-md">BHARAT</span>
+                    <span class="text-[10px] md:text-xs font-bold text-brandPink tracking-[0.2em] uppercase bg-white/10 px-2 rounded backdrop-blur-sm mt-1">Tour & Travels</span>
                 </div>
             </a>
 
@@ -202,13 +202,13 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full top-full left-0 shadow-xl">
-            <div class="flex flex-col p-4 space-y-4 font-semibold text-gray-700 text-center">
-                <a href="#home" class="mobile-link py-2 border-b border-gray-50">Home</a>
-                <a href="#about" class="mobile-link py-2 border-b border-gray-50">About Us</a>
-                <a href="#fleet" class="mobile-link py-2 border-b border-gray-50">Fleet</a>
-                <a href="#packages" class="mobile-link py-2 border-b border-gray-50">Packages</a>
-                <a href="#contact" class="mobile-link py-2 text-brandPink">Book Now</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full top-full left-0 shadow-xl transition-all duration-300 ease-in-out">
+            <div class="flex flex-col p-6 space-y-4 font-semibold text-gray-700 text-center">
+                <a href="#home" class="mobile-link py-3 border-b border-gray-100 hover:text-brandPink transition">Home</a>
+                <a href="#about" class="mobile-link py-3 border-b border-gray-100 hover:text-brandPink transition">About Us</a>
+                <a href="#fleet" class="mobile-link py-3 border-b border-gray-100 hover:text-brandPink transition">Fleet</a>
+                <a href="#packages" class="mobile-link py-3 border-b border-gray-100 hover:text-brandPink transition">Packages</a>
+                <a href="#contact" class="mobile-link py-3 text-white bg-brand-gradient rounded-full font-bold shadow-md mt-2">Book Now</a>
             </div>
         </div>
     </header>
@@ -234,101 +234,101 @@
 
         <!-- Floating Stats Card (Compact Version) -->
         <div class="absolute -bottom-16 md:-bottom-12 w-full z-30 px-4">
-            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.12)] p-6 md:py-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center border border-gray-100 reveal slide-up">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.12)] p-4 md:p-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center border border-gray-100 reveal slide-up">
                  <!-- Item 1 -->
                  <div class="flex flex-col items-center group">
                     <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-users text-3xl"></i>
+                        <i class="fa-solid fa-users text-2xl md:text-3xl"></i>
                     </div>
                     <!-- Counter Animation Target -->
-                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="5000">0</span>+</h3>
-                    <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Happy Clients</p>
+                    <h3 class="text-xl md:text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="5000">0</span>+</h3>
+                    <p class="text-gray-500 font-semibold text-[10px] md:text-xs uppercase tracking-wide">Happy Clients</p>
                 </div>
                 
                 <!-- Item 2 -->
                  <div class="flex flex-col items-center group">
                     <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-map-location-dot text-3xl"></i>
+                        <i class="fa-solid fa-map-location-dot text-2xl md:text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="100">0</span>+</h3>
-                    <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Destinations</p>
+                    <h3 class="text-xl md:text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="100">0</span>+</h3>
+                    <p class="text-gray-500 font-semibold text-[10px] md:text-xs uppercase tracking-wide">Destinations</p>
                 </div>
 
                 <!-- Item 3 -->
                  <div class="flex flex-col items-center group">
                     <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-car text-3xl"></i>
+                        <i class="fa-solid fa-car text-2xl md:text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="50">0</span>+</h3>
-                    <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Luxury Vehicles</p>
+                    <h3 class="text-xl md:text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="50">0</span>+</h3>
+                    <p class="text-gray-500 font-semibold text-[10px] md:text-xs uppercase tracking-wide">Luxury Vehicles</p>
                 </div>
 
                 <!-- Item 4 -->
                  <div class="flex flex-col items-center group">
                     <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
-                        <i class="fa-regular fa-calendar-check text-3xl"></i>
+                        <i class="fa-regular fa-calendar-check text-2xl md:text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="12">0</span> Yrs</h3>
-                    <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Experience</p>
+                    <h3 class="text-xl md:text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="12">0</span> Yrs</h3>
+                    <p class="text-gray-500 font-semibold text-[10px] md:text-xs uppercase tracking-wide">Experience</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="pt-28 pb-24 bg-white">
+    <section id="about" class="pt-24 md:pt-28 pb-16 md:pb-24 bg-white">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                 <!-- Image Slides from Left -->
                 <div class="lg:w-1/2 relative reveal slide-left">
                     <div class="absolute -inset-4 bg-brand-gradient rounded-2xl opacity-10 transform rotate-3"></div>
                     <!-- Updated Image Source -->
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/14504160832653175312" alt="Ram Mandir Ayodhya" class="relative rounded-lg shadow-2xl w-full object-cover h-[500px]">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/14504160832653175312" alt="Ram Mandir Ayodhya" class="relative rounded-lg shadow-2xl w-full object-cover h-[350px] md:h-[500px]">
                     <!-- Added animate-float to this card -->
-                    <div class="absolute bottom-8 -right-8 bg-white p-6 rounded-lg shadow-xl hidden md:block max-w-xs border-l-4 border-brandPurple animate-float hover:scale-105 hover:shadow-2xl hover:border-brandPink transition-all duration-300 cursor-pointer">
-                        <p class="font-bold text-gray-800 text-lg mb-1 flex items-center gap-2">
-                            "Jai Shree Ram" <i class="fa-solid fa-hands-praying text-brandPink text-xl animate-pulse"></i>
+                    <div class="absolute bottom-6 -right-4 md:bottom-8 md:-right-8 bg-white p-4 md:p-6 rounded-lg shadow-xl hidden md:block max-w-[200px] md:max-w-xs border-l-4 border-brandPurple animate-float hover:scale-105 hover:shadow-2xl hover:border-brandPink transition-all duration-300 cursor-pointer">
+                        <p class="font-bold text-gray-800 text-base md:text-lg mb-1 flex items-center gap-2">
+                            "Jai Shree Ram" <i class="fa-solid fa-hands-praying text-brandPink text-lg md:text-xl animate-pulse"></i>
                         </p>
-                        <p class="text-sm text-gray-500">We specialize in Darshan tours with experienced guides.</p>
+                        <p class="text-xs md:text-sm text-gray-500">We specialize in Darshan tours with experienced guides.</p>
                     </div>
                 </div>
                 <!-- Text Slides from Right -->
                 <div class="lg:w-1/2 reveal slide-right">
-                    <span class="text-brandPink font-bold uppercase tracking-widest text-sm mb-2 block">About Our Agency</span>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">Your Journey, <br>Our <span class="text-brandPurple">Responsibility</span></h2>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    <span class="text-brandPink font-bold uppercase tracking-widest text-xs md:text-sm mb-2 block">About Our Agency</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">Your Journey, <br>Our <span class="text-brandPurple">Responsibility</span></h2>
+                    <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
                         Bharat Tour & Travels is Ayodhya's premier travel partner, dedicated to providing safe, spiritual, and comfortable journeys. Whether you are here for the <span class="font-bold text-gray-800">Ram Mandir Darshan</span> or an outstation family trip, our fleet is ready.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-shield-halved text-brandPink mr-4 text-2xl"></i> Safe & Sanitized</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-user-tie text-brandPink mr-4 text-2xl"></i> Expert Drivers</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-indian-rupee-sign text-brandPink mr-4 text-2xl"></i> Best Prices</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-clock text-brandPink mr-4 text-2xl"></i> 24/7 Support</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-shield-halved text-brandPink mr-3 md:mr-4 text-xl md:text-2xl"></i> Safe & Sanitized</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-user-tie text-brandPink mr-3 md:mr-4 text-xl md:text-2xl"></i> Expert Drivers</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-indian-rupee-sign text-brandPink mr-3 md:mr-4 text-xl md:text-2xl"></i> Best Prices</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-clock text-brandPink mr-3 md:mr-4 text-xl md:text-2xl"></i> 24/7 Support</div>
                     </div>
-                    <a href="#contact" class="inline-block px-10 py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-brandPink transition shadow-lg transform hover:scale-105">Read More</a>
+                    <a href="#contact" class="inline-block px-8 py-3 md:px-10 md:py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-brandPink transition shadow-lg transform hover:scale-105 text-sm md:text-base">Read More</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Fleet Section -->
-    <section id="fleet" class="py-24 bg-gray-50 relative">
+    <section id="fleet" class="py-16 md:py-24 bg-gray-50 relative">
         <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#7a1fa2 1px, transparent 1px); background-size: 20px 20px;"></div>
 
         <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16 reveal slide-up">
-                <span class="text-brandPink font-bold uppercase tracking-widest text-sm">Our Premium Fleet</span>
-                <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Choose Your Comfort</h2>
-                <div class="w-24 h-1.5 bg-brand-gradient mx-auto mt-4 rounded-full"></div>
+            <div class="text-center mb-12 md:mb-16 reveal slide-up">
+                <span class="text-brandPink font-bold uppercase tracking-widest text-xs md:text-sm">Our Premium Fleet</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">Choose Your Comfort</h2>
+                <div class="w-16 md:w-24 h-1.5 bg-brand-gradient mx-auto mt-4 rounded-full"></div>
             </div>
 
             <!-- Cars Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
                 <!-- Vehicle Card Template (WordPress Style) -->
                 <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-100">
                     <div class="relative overflow-hidden">
-                        <img src="https://cdn1.smartprix.com/rx-iueIMKxHR-w1200-h1200/ueIMKxHR.webp" alt="Innova Crysta" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="https://cdn1.smartprix.com/rx-iueIMKxHR-w1200-h1200/ueIMKxHR.webp" alt="Innova Crysta" class="w-full h-56 md:h-64 object-cover transform group-hover:scale-110 transition duration-700">
                         <div class="absolute top-4 right-4 bg-brandPurple text-white text-xs font-bold px-3 py-1.5 rounded shadow">Best Seller</div>
                     </div>
                     <div class="p-6">
@@ -351,7 +351,7 @@
                 <!-- Swift Dzire -->
                 <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-200">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.pexels.com/photos/18316714/pexels-photo-18316714.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sedan" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="https://images.pexels.com/photos/18316714/pexels-photo-18316714.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sedan" class="w-full h-56 md:h-64 object-cover transform group-hover:scale-110 transition duration-700">
                         <div class="absolute top-4 right-4 bg-gray-800 text-white text-xs font-bold px-3 py-1.5 rounded shadow">Economy</div>
                     </div>
                     <div class="p-6">
@@ -374,7 +374,7 @@
                 <!-- Ertiga -->
                 <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-300">
                     <div class="relative overflow-hidden">
-                        <img src="https://imgcdn.oto.com/large/gallery/roadtest/37/332/suzuki-ertiga-front-side-view-986838.jpg" alt="Ertiga" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="https://imgcdn.oto.com/large/gallery/roadtest/37/332/suzuki-ertiga-front-side-view-986838.jpg" alt="Ertiga" class="w-full h-56 md:h-64 object-cover transform group-hover:scale-110 transition duration-700">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-brandPink transition">Maruti Ertiga</h3>
@@ -396,7 +396,7 @@
                  <!-- Fortuner -->
                 <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-100">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800" alt="Fortuner" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800" alt="Fortuner" class="w-full h-56 md:h-64 object-cover transform group-hover:scale-110 transition duration-700">
                          <div class="absolute top-4 right-4 bg-brandPink text-white text-xs font-bold px-3 py-1.5 rounded shadow">Luxury</div>
                     </div>
                     <div class="p-6">
@@ -418,7 +418,7 @@
                  <!-- Tempo Traveller -->
                 <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-200">
                     <div class="relative overflow-hidden">
-                        <img src="https://cabsules.com/wp-content/uploads/Book-25-Seater-Tempo-Traveller-in-Varanasi-1.jpeg" alt="Traveller" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="https://cabsules.com/wp-content/uploads/Book-25-Seater-Tempo-Traveller-in-Varanasi-1.jpeg" alt="Traveller" class="w-full h-56 md:h-64 object-cover transform group-hover:scale-110 transition duration-700">
                          <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded shadow">Group</div>
                     </div>
                     <div class="p-6">
@@ -440,7 +440,7 @@
                  <!-- Bus -->
                 <div class="vehicle-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 group reveal slide-up delay-300">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800" alt="Luxury Bus" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800" alt="Luxury Bus" class="w-full h-56 md:h-64 object-cover transform group-hover:scale-110 transition duration-700">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-brandPink transition">Luxury Bus (50 Seater)</h3>
@@ -467,71 +467,71 @@
     </section>
 
     <!-- Parallax Section (Why Choose Us) -->
-    <section class="py-24 bg-fixed bg-cover bg-center relative text-white" style="background-image: url('https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg');">
+    <section class="py-16 md:py-24 bg-fixed bg-cover bg-center relative text-white" style="background-image: url('https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg');">
         <div class="absolute inset-0 bg-gray-900/80"></div>
         <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16 reveal slide-up">
-                <h2 class="text-4xl font-extrabold mb-4">Why Travel With Bharat?</h2>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto">We don't just provide cars; we provide experiences. Trusted by thousands for our reliability.</p>
+            <div class="text-center mb-12 md:mb-16 reveal slide-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Why Travel With Bharat?</h2>
+                <p class="text-base md:text-lg text-gray-300 max-w-2xl mx-auto">We don't just provide cars; we provide experiences. Trusted by thousands for our reliability.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-left delay-100 group">
-                    <i class="fa-solid fa-clock text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
-                    <h3 class="text-xl font-bold mb-2">Punctual Service</h3>
-                    <p class="text-gray-300 text-sm">We value your time. Our drivers arrive 15 minutes before pickup.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
+                <div class="bg-white/10 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-left delay-100 group">
+                    <i class="fa-solid fa-clock text-3xl md:text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">Punctual Service</h3>
+                    <p class="text-gray-300 text-xs md:text-sm">We value your time. Our drivers arrive 15 minutes before pickup.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-up delay-200 group">
-                    <i class="fa-solid fa-wallet text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
-                    <h3 class="text-xl font-bold mb-2">Transparent Billing</h3>
-                    <p class="text-gray-300 text-sm">No hidden charges. What you see is what you pay.</p>
+                <div class="bg-white/10 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-up delay-200 group">
+                    <i class="fa-solid fa-wallet text-3xl md:text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">Transparent Billing</h3>
+                    <p class="text-gray-300 text-xs md:text-sm">No hidden charges. What you see is what you pay.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-right delay-300 group">
-                    <i class="fa-solid fa-headset text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
-                    <h3 class="text-xl font-bold mb-2">24/7 Support</h3>
-                    <p class="text-gray-300 text-sm">Our team is available round the clock to assist you.</p>
+                <div class="bg-white/10 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-right delay-300 group">
+                    <i class="fa-solid fa-headset text-3xl md:text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">24/7 Support</h3>
+                    <p class="text-gray-300 text-xs md:text-sm">Our team is available round the clock to assist you.</p>
                 </div>
             </div>
         </div>
     </section>
 
      <!-- Testimonials Section -->
-    <section class="py-20 bg-white">
+    <section class="py-16 md:py-20 bg-white">
         <div class="container mx-auto px-4">
-             <div class="text-center mb-16 reveal slide-up">
-                <span class="text-brandPink font-bold uppercase tracking-widest text-sm">Testimonials</span>
-                <h2 class="text-4xl font-extrabold text-gray-900 mt-2">What Our Clients Say</h2>
+             <div class="text-center mb-12 md:mb-16 reveal slide-up">
+                <span class="text-brandPink font-bold uppercase tracking-widest text-xs md:text-sm">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">What Our Clients Say</h2>
                 <div class="w-16 h-1.5 bg-brand-gradient mx-auto mt-4 rounded-full"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-left relative">
-                    <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
-                    <p class="text-gray-600 mb-6 relative z-10 italic">"Excellent service! We booked a Tempo Traveller for our family trip to Ayodhya. The vehicle was clean and the driver was very polite."</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-gray-50 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-left relative">
+                    <i class="fa-solid fa-quote-left text-3xl md:text-4xl text-gray-200 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic text-sm md:text-base">"Excellent service! We booked a Tempo Traveller for our family trip to Ayodhya. The vehicle was clean and the driver was very polite."</p>
                     <div class="flex items-center">
                         <div class="w-10 h-10 bg-brandPink rounded-full flex items-center justify-center text-white font-bold mr-3">R</div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Rahul Sharma</h4>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base">Rahul Sharma</h4>
                             <p class="text-xs text-gray-500">Delhi</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-up relative">
-                    <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
-                    <p class="text-gray-600 mb-6 relative z-10 italic">"Highly recommended for Outstation trips. We went to Kashi and Prayagraj. Smooth booking process via WhatsApp."</p>
+                <div class="bg-gray-50 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-up relative">
+                    <i class="fa-solid fa-quote-left text-3xl md:text-4xl text-gray-200 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic text-sm md:text-base">"Highly recommended for Outstation trips. We went to Kashi and Prayagraj. Smooth booking process via WhatsApp."</p>
                       <div class="flex items-center">
                         <div class="w-10 h-10 bg-brandPurple rounded-full flex items-center justify-center text-white font-bold mr-3">A</div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Anjali Gupta</h4>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base">Anjali Gupta</h4>
                             <p class="text-xs text-gray-500">Lucknow</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-right relative">
-                    <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
-                    <p class="text-gray-600 mb-6 relative z-10 italic">"Best prices in Ayodhya. I compared many agencies but Bharat Travels gave the best deal for Innova Crysta."</p>
+                <div class="bg-gray-50 p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-right relative">
+                    <i class="fa-solid fa-quote-left text-3xl md:text-4xl text-gray-200 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic text-sm md:text-base">"Best prices in Ayodhya. I compared many agencies but Bharat Travels gave the best deal for Innova Crysta."</p>
                       <div class="flex items-center">
                         <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold mr-3">V</div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Vikram Singh</h4>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base">Vikram Singh</h4>
                             <p class="text-xs text-gray-500">Mumbai</p>
                         </div>
                     </div>
@@ -541,36 +541,36 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-50">
+    <section id="gallery" class="py-16 md:py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-             <div class="text-center mb-16 reveal slide-up">
-                <h2 class="text-4xl font-extrabold text-gray-900">Photo Gallery</h2>
-                 <p class="text-gray-500 mt-2">Glimpses of our fleet and happy journeys.</p>
+             <div class="text-center mb-12 md:mb-16 reveal slide-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Photo Gallery</h2>
+                 <p class="text-gray-500 mt-2 text-sm md:text-base">Glimpses of our fleet and happy journeys.</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal slide-up">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 reveal slide-up">
                  <!-- Images with hover zoom effect -->
-                <div class="overflow-hidden rounded-lg shadow-md group h-48">
+                <div class="overflow-hidden rounded-lg shadow-md group h-32 md:h-48">
                       <img src="https://cdn1.smartprix.com/rx-iueIMKxHR-w1200-h1200/ueIMKxHR.webp" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Innova Crysta">
                 </div>
-                <div class="overflow-hidden rounded-lg shadow-md group h-48">
+                <div class="overflow-hidden rounded-lg shadow-md group h-32 md:h-48">
                     <img src="https://images.pexels.com/photos/18316714/pexels-photo-18316714.jpeg?auto=compress&cs=tinysrgb&w=800" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Swift Dzire">
                 </div>
-                 <div class="overflow-hidden rounded-lg shadow-md group h-48">
+                 <div class="overflow-hidden rounded-lg shadow-md group h-32 md:h-48">
                     <img src="https://imgcdn.oto.com/large/gallery/roadtest/37/332/suzuki-ertiga-front-side-view-986838.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Ertiga">
                 </div>
-                 <div class="overflow-hidden rounded-lg shadow-md group h-48">
+                 <div class="overflow-hidden rounded-lg shadow-md group h-32 md:h-48">
                     <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Fortuner">
                 </div>
-                 <div class="overflow-hidden rounded-lg shadow-md group h-48">
+                 <div class="overflow-hidden rounded-lg shadow-md group h-32 md:h-48">
                     <img src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=1600" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Scorpio">
                 </div>
-                 <div class="overflow-hidden rounded-lg shadow-md group h-48">
+                 <div class="overflow-hidden rounded-lg shadow-md group h-32 md:h-48">
                     <img src="https://cabsules.com/wp-content/uploads/Book-25-Seater-Tempo-Traveller-in-Varanasi-1.jpeg" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Tempo">
                 </div>
-                 <div class="overflow-hidden rounded-lg shadow-md group h-48">
+                 <div class="overflow-hidden rounded-lg shadow-md group h-32 md:h-48">
                     <img src="https://5.imimg.com/data5/UB/TC/MY-23441034/30-seater-bus-for-rent-in-bangalore-32-seater-bus-hire-bangalore-1000x1000.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Bus">
                 </div>
-                 <div class="overflow-hidden rounded-lg shadow-md group h-48">
+                 <div class="overflow-hidden rounded-lg shadow-md group h-32 md:h-48">
                     <!-- Updated Image Source -->
                     <img src="http://googleusercontent.com/image_collection/image_retrieval/14504160832653175312" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Temple">
                 </div>
@@ -579,16 +579,16 @@
     </section>
 
     <!-- Booking Section -->
-    <section id="contact" class="py-24 bg-white relative">
+    <section id="contact" class="py-16 md:py-24 bg-white relative">
         <div class="container mx-auto px-4">
             <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row reveal slide-up">
                 <!-- Left: Form -->
-                <div class="lg:w-7/12 p-8 md:p-12">
-                     <span class="text-brandPink font-bold uppercase tracking-widest text-sm">Get in Touch</span>
-                    <h3 class="text-3xl font-extrabold text-gray-900 mb-2">Book Your Journey</h3>
-                    <p class="text-gray-500 mb-8">Fill the form below or WhatsApp us directly.</p>
+                <div class="lg:w-7/12 p-6 md:p-12">
+                     <span class="text-brandPink font-bold uppercase tracking-widest text-xs md:text-sm">Get in Touch</span>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">Book Your Journey</h3>
+                    <p class="text-gray-500 mb-6 md:mb-8 text-sm md:text-base">Fill the form below or WhatsApp us directly.</p>
                     
-                    <form id="bookingForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <form id="bookingForm" class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div class="col-span-2 md:col-span-1">
                              <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition hover:shadow-sm" placeholder="Your Name">
                         </div>
@@ -619,37 +619,37 @@
                         </div>
 
                         <div class="col-span-2">
-                            <button type="submit" class="w-full py-4 bg-brand-gradient text-white font-bold text-lg rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-[1.01]">
+                            <button type="submit" class="w-full py-3 md:py-4 bg-brand-gradient text-white font-bold text-lg rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-[1.01]">
                                 Send Enquiry <i class="fa-solid fa-paper-plane ml-2"></i>
                             </button>
                         </div>
                     </form>
                 </div>
                  <!-- Right: Image/Map -->
-                <div class="lg:w-5/12 bg-gray-900 relative">
+                <div class="lg:w-5/12 bg-gray-900 relative min-h-[300px] lg:min-h-full">
                      <div class="absolute inset-0 opacity-40 bg-[url('https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg?auto=compress&cs=tinysrgb&w=800')] bg-cover bg-center"></div>
-                     <div class="relative z-10 p-12 text-white h-full flex flex-col justify-center">
-                         <h4 class="text-2xl font-bold mb-6">Contact Info</h4>
+                     <div class="relative z-10 p-8 md:p-12 text-white h-full flex flex-col justify-center">
+                         <h4 class="text-xl md:text-2xl font-bold mb-6">Contact Info</h4>
                           <div class="space-y-6">
                             <div class="flex items-start gap-4 hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-location-dot text-brandPink text-xl mt-1"></i>
                                 <div>
-                                    <h5 class="font-bold">Head Office</h5>
-                                    <p class="text-gray-300 text-sm">Near Bus Stop, Naya Ghat,<br>Ayodhya, UP</p>
+                                    <h5 class="font-bold text-sm md:text-base">Head Office</h5>
+                                    <p class="text-gray-300 text-xs md:text-sm">Near Bus Stop, Naya Ghat,<br>Ayodhya, UP</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4 hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-phone text-brandPink text-xl mt-1"></i>
                                 <div>
-                                    <h5 class="font-bold">Call Us</h5>
-                                    <p class="text-gray-300 text-sm">+91 9984291310</p>
+                                    <h5 class="font-bold text-sm md:text-base">Call Us</h5>
+                                    <p class="text-gray-300 text-xs md:text-sm">+91 9984291310</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4 hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-envelope text-brandPink text-xl mt-1"></i>
                                 <div>
-                                    <h5 class="font-bold">Email Us</h5>
-                                    <p class="text-gray-300 text-sm">booking@bharattravels.com</p>
+                                    <h5 class="font-bold text-sm md:text-base">Email Us</h5>
+                                    <p class="text-gray-300 text-xs md:text-sm">booking@bharattravels.com</p>
                                 </div>
                             </div>
                         </div>
@@ -660,7 +660,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800">
+    <footer class="bg-gray-900 text-gray-300 pt-12 md:pt-16 pb-8 border-t border-gray-800">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <!-- Widget 1 -->
@@ -671,7 +671,7 @@
                         </div>
                         <span class="text-lg font-extrabold text-white">BHARAT TRAVELS</span>
                     </div>
-                    <p class="text-sm mb-6 leading-relaxed">
+                    <p class="text-xs md:text-sm mb-6 leading-relaxed">
                         Your trusted travel partner for safe, reliable, and comfortable journeys across Ayodhya and India.
                     </p>
                      <div class="flex gap-4">
@@ -683,7 +683,7 @@
                 <!-- Widget 2 -->
                 <div class="reveal slide-up delay-200">
                     <h4 class="text-white font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3 text-sm">
+                    <ul class="space-y-3 text-xs md:text-sm">
                         <li><a href="#home" class="hover:text-brandPink transition flex items-center group"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600 group-hover:text-brandPink transition"></i> Home</a></li>
                         <li><a href="#about" class="hover:text-brandPink transition flex items-center group"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600 group-hover:text-brandPink transition"></i> About Us</a></li>
                         <li><a href="#fleet" class="hover:text-brandPink transition flex items-center group"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600 group-hover:text-brandPink transition"></i> Our Fleet</a></li>
@@ -694,7 +694,7 @@
                 <!-- Widget 3 -->
                 <div class="reveal slide-up delay-300">
                     <h4 class="text-white font-bold mb-6">Our Services</h4>
-                    <ul class="space-y-3 text-sm">
+                    <ul class="space-y-3 text-xs md:text-sm">
                         <li class="hover:text-brandPink transition cursor-pointer">Local Sightseeing</li>
                         <li class="hover:text-brandPink transition cursor-pointer">Outstation Taxi</li>
                         <li class="hover:text-brandPink transition cursor-pointer">Airport Pickup</li>
@@ -706,13 +706,13 @@
                 <div class="reveal slide-up delay-400">
                     <h4 class="text-white font-bold mb-6">We Accept</h4>
                     <div class="flex gap-2 flex-wrap mb-6">
-                        <i class="fa-brands fa-cc-visa text-3xl text-gray-500 hover:text-white transition"></i>
-                        <i class="fa-brands fa-cc-mastercard text-3xl text-gray-500 hover:text-white transition"></i>
-                        <i class="fa-brands fa-google-pay text-3xl text-gray-500 hover:text-white transition"></i>
-                        <i class="fa-solid fa-money-bill text-3xl text-gray-500 hover:text-white transition"></i>
+                        <i class="fa-brands fa-cc-visa text-2xl md:text-3xl text-gray-500 hover:text-white transition"></i>
+                        <i class="fa-brands fa-cc-mastercard text-2xl md:text-3xl text-gray-500 hover:text-white transition"></i>
+                        <i class="fa-brands fa-google-pay text-2xl md:text-3xl text-gray-500 hover:text-white transition"></i>
+                        <i class="fa-solid fa-money-bill text-2xl md:text-3xl text-gray-500 hover:text-white transition"></i>
                     </div>
                      <h4 class="text-white font-bold mb-2 text-sm">Need Help?</h4>
-                     <p class="text-brandPink font-bold text-lg hover:text-white transition cursor-pointer">9984291310</p>
+                     <p class="text-brandPink font-bold text-base md:text-lg hover:text-white transition cursor-pointer">9984291310</p>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-600 text-xs flex flex-col md:flex-row justify-between items-center">
@@ -726,11 +726,11 @@
     </footer>
 
     <!-- Floating Buttons -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-        <a href="tel:9984291310" class="w-12 h-12 bg-white text-brandPink rounded-full shadow-lg flex items-center justify-center text-xl hover:bg-gray-50 transition border border-gray-100 animate-heartbeat" title="Call Us">
+    <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-3 md:gap-4">
+        <a href="tel:9984291310" class="w-10 h-10 md:w-12 md:h-12 bg-white text-brandPink rounded-full shadow-lg flex items-center justify-center text-lg md:text-xl hover:bg-gray-50 transition border border-gray-100 animate-heartbeat" title="Call Us">
             <i class="fa-solid fa-phone"></i>
         </a>
-        <a href="https://wa.me/919984291310" class="w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl flex items-center justify-center text-2xl hover:scale-110 transition animate-heartbeat" title="Chat on WhatsApp">
+        <a href="https://wa.me/919984291310" class="w-12 h-12 md:w-14 md:h-14 bg-[#25D366] text-white rounded-full shadow-xl flex items-center justify-center text-xl md:text-2xl hover:scale-110 transition animate-heartbeat" title="Chat on WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>
