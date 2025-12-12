@@ -40,6 +40,7 @@
                             animation: {
                                 'float': 'float 6s ease-in-out infinite',
                                 'fade-in': 'fadeIn 1s ease-out forwards',
+                                'heartbeat': 'heartbeat 2s infinite',
                             },
                             keyframes: {
                                 float: {
@@ -49,6 +50,10 @@
                                 fadeIn: {
                                     '0%': { opacity: '0', transform: 'translateY(20px)' },
                                     '100%': { opacity: '1', transform: 'translateY(0)' },
+                                },
+                                heartbeat: {
+                                    '0%, 100%': { transform: 'scale(1)' },
+                                    '50%': { transform: 'scale(1.1)' },
                                 }
                             }
                         }
@@ -123,6 +128,7 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
 
         .vehicle-card {
             transition: all 0.4s ease;
@@ -181,7 +187,7 @@
 
             <!-- Action Buttons (Desktop) -->
             <div class="hidden md:flex items-center gap-3">
-                <a href="tel:9984291310" class="px-6 py-2.5 rounded-full border border-white/30 text-white font-bold text-sm hover:bg-white hover:text-brandPink transition-all backdrop-blur-sm">
+                <a href="tel:9984291310" class="px-6 py-2.5 rounded-full border border-white/30 text-white font-bold text-sm hover:bg-white hover:text-brandPink transition-all backdrop-blur-sm hover:animate-pulse">
                     <i class="fa-solid fa-phone mr-2"></i>Call
                 </a>
                 <a href="https://wa.me/919984291310" target="_blank" class="px-6 py-2.5 rounded-full bg-[#25D366] text-white font-bold text-sm hover:bg-[#128C7E] transition-all shadow-lg flex items-center hover:scale-105 transform">
@@ -211,9 +217,7 @@
     <section id="home" class="relative h-screen w-full overflow-hidden flex items-center justify-center text-center text-white">
         <!-- Background Images Slider -->
         <div id="hero-slider" class="absolute inset-0 z-0 bg-gray-900">
-             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-100 scale-100" style="background-image: url('https://images.pexels.com/photos/15383205/pexels-photo-15383205.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
-            <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
-            <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://imgcdn.oto.com/large/gallery/roadtest/37/332/suzuki-ertiga-front-side-view-986838.jpg');"></div>
+            <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-100 scale-100" style="background-image: url('https://imgcdn.oto.com/large/gallery/roadtest/37/332/suzuki-ertiga-front-side-view-986838.jpg');"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1600');"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://images.unsplash.com/photo-1619682817481-e994891cd1f5?auto=format&fit=crop&w=1600');"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-105" style="background-image: url('https://cabsules.com/wp-content/uploads/Book-25-Seater-Tempo-Traveller-in-Varanasi-1.jpeg');"></div>
@@ -223,8 +227,6 @@
         <!-- Gradient Overlay -->
         <div class="absolute inset-0 z-10 hero-overlay"></div>
 
-        <!-- Main Content (Removed) -->
-
         <!-- Scroll Down Indicator -->
         <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20 animate-bounce text-white/50 hidden md:block">
             <i class="fa-solid fa-angle-down text-4xl"></i>
@@ -232,13 +234,14 @@
 
         <!-- Floating Stats Card (Compact Version) -->
         <div class="absolute -bottom-16 md:-bottom-12 w-full z-30 px-4">
-            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.12)] p-6 md:py-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center border border-gray-100">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.12)] p-6 md:py-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center border border-gray-100 reveal slide-up">
                  <!-- Item 1 -->
                  <div class="flex flex-col items-center group">
                     <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-users text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5">5000+</h3>
+                    <!-- Counter Animation Target -->
+                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="5000">0</span>+</h3>
                     <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Happy Clients</p>
                 </div>
                 
@@ -247,7 +250,7 @@
                     <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-map-location-dot text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5">100+</h3>
+                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="100">0</span>+</h3>
                     <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Destinations</p>
                 </div>
 
@@ -256,14 +259,21 @@
                     <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-car text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5">50+</h3>
+                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="50">0</span>+</h3>
                     <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Luxury Vehicles</p>
+                </div>
+
+                <!-- Item 4 -->
+                 <div class="flex flex-col items-center group">
+                    <div class="mb-2 text-brandPink transform group-hover:scale-110 transition duration-300">
+                        <i class="fa-regular fa-calendar-check text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-gray-800 mb-0.5"><span class="counter" data-target="12">0</span> Yrs</h3>
+                    <p class="text-gray-500 font-semibold text-xs uppercase tracking-wide">Experience</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Mobile Stats (Removed as it's now integrated into the main hero card) -->
 
     <!-- About Us Section -->
     <section id="about" class="pt-28 pb-24 bg-white">
@@ -272,9 +282,13 @@
                 <!-- Image Slides from Left -->
                 <div class="lg:w-1/2 relative reveal slide-left">
                     <div class="absolute -inset-4 bg-brand-gradient rounded-2xl opacity-10 transform rotate-3"></div>
-                    <img src="https://images.unsplash.com/photo-1594101895698-33306877477c?auto=format&fit=crop&w=800" alt="Ram Mandir Ayodhya" class="relative rounded-lg shadow-2xl w-full object-cover h-[500px]">
-                    <div class="absolute bottom-8 -right-8 bg-white p-6 rounded-lg shadow-xl hidden md:block max-w-xs border-l-4 border-brandPurple">
-                        <p class="font-bold text-gray-800 text-lg mb-1">"Jai Shree Ram"</p>
+                    <!-- Updated Image Source -->
+                    <img src="rammandir.png" alt="Ram Mandir Ayodhya" class="relative rounded-lg shadow-2xl w-full object-cover h-[500px]">
+                    <!-- Added animate-float to this card -->
+                    <div class="absolute bottom-8 -right-8 bg-white p-6 rounded-lg shadow-xl hidden md:block max-w-xs border-l-4 border-brandPurple animate-float hover:scale-105 hover:shadow-2xl hover:border-brandPink transition-all duration-300 cursor-pointer">
+                        <p class="font-bold text-gray-800 text-lg mb-1 flex items-center gap-2">
+                            "Jai Shree Ram" <i class="fa-solid fa-hands-praying text-brandPink text-xl animate-pulse"></i>
+                        </p>
                         <p class="text-sm text-gray-500">We specialize in Darshan tours with experienced guides.</p>
                     </div>
                 </div>
@@ -286,12 +300,12 @@
                         Bharat Tour & Travels is Ayodhya's premier travel partner, dedicated to providing safe, spiritual, and comfortable journeys. Whether you are here for the <span class="font-bold text-gray-800">Ram Mandir Darshan</span> or an outstation family trip, our fleet is ready.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition"><i class="fa-solid fa-shield-halved text-brandPink mr-4 text-2xl"></i> Safe & Sanitized</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition"><i class="fa-solid fa-user-tie text-brandPink mr-4 text-2xl"></i> Expert Drivers</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition"><i class="fa-solid fa-indian-rupee-sign text-brandPink mr-4 text-2xl"></i> Best Prices</div>
-                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition"><i class="fa-solid fa-clock text-brandPink mr-4 text-2xl"></i> 24/7 Support</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-shield-halved text-brandPink mr-4 text-2xl"></i> Safe & Sanitized</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-user-tie text-brandPink mr-4 text-2xl"></i> Expert Drivers</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-indian-rupee-sign text-brandPink mr-4 text-2xl"></i> Best Prices</div>
+                        <div class="flex items-center text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition hover:-translate-y-1"><i class="fa-solid fa-clock text-brandPink mr-4 text-2xl"></i> 24/7 Support</div>
                     </div>
-                    <a href="#contact" class="inline-block px-10 py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-brandPink transition shadow-lg">Read More</a>
+                    <a href="#contact" class="inline-block px-10 py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-brandPink transition shadow-lg transform hover:scale-105">Read More</a>
                 </div>
             </div>
         </div>
@@ -329,7 +343,7 @@
                                 <p class="text-xs text-gray-400">Starting from</p>
                                 <p class="text-brandPink font-bold text-lg">₹14/km</p>
                             </div>
-                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition">Book Now</a>
+                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition transform hover:scale-105">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -352,7 +366,7 @@
                                 <p class="text-xs text-gray-400">Starting from</p>
                                 <p class="text-brandPink font-bold text-lg">₹11/km</p>
                             </div>
-                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition">Book Now</a>
+                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition transform hover:scale-105">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -374,7 +388,7 @@
                                 <p class="text-xs text-gray-400">Starting from</p>
                                 <p class="text-brandPink font-bold text-lg">₹13/km</p>
                             </div>
-                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition">Book Now</a>
+                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition transform hover:scale-105">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -396,7 +410,7 @@
                                 <p class="text-xs text-gray-400">Starting from</p>
                                 <p class="text-brandPink font-bold text-lg">₹35/km</p>
                             </div>
-                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition">Book Now</a>
+                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition transform hover:scale-105">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -418,7 +432,7 @@
                                 <p class="text-xs text-gray-400">Starting from</p>
                                 <p class="text-brandPink font-bold text-lg">₹24/km</p>
                             </div>
-                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition">Book Now</a>
+                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition transform hover:scale-105">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -439,7 +453,7 @@
                                 <p class="text-xs text-gray-400">Starting from</p>
                                 <p class="text-brandPink font-bold text-lg">Call Us</p>
                             </div>
-                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition">Book Now</a>
+                            <a href="#contact" class="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded hover:bg-brandPink transition transform hover:scale-105">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -461,18 +475,18 @@
                 <p class="text-lg text-gray-300 max-w-2xl mx-auto">We don't just provide cars; we provide experiences. Trusted by thousands for our reliability.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal slide-left delay-100">
-                    <i class="fa-solid fa-clock text-4xl text-brandPink mb-4"></i>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-left delay-100 group">
+                    <i class="fa-solid fa-clock text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
                     <h3 class="text-xl font-bold mb-2">Punctual Service</h3>
                     <p class="text-gray-300 text-sm">We value your time. Our drivers arrive 15 minutes before pickup.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal slide-up delay-200">
-                    <i class="fa-solid fa-wallet text-4xl text-brandPink mb-4"></i>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-up delay-200 group">
+                    <i class="fa-solid fa-wallet text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
                     <h3 class="text-xl font-bold mb-2">Transparent Billing</h3>
                     <p class="text-gray-300 text-sm">No hidden charges. What you see is what you pay.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition reveal slide-right delay-300">
-                    <i class="fa-solid fa-headset text-4xl text-brandPink mb-4"></i>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/10 hover:bg-white/20 transition hover:transform hover:scale-105 reveal slide-right delay-300 group">
+                    <i class="fa-solid fa-headset text-4xl text-brandPink mb-4 group-hover:animate-bounce"></i>
                     <h3 class="text-xl font-bold mb-2">24/7 Support</h3>
                     <p class="text-gray-300 text-sm">Our team is available round the clock to assist you.</p>
                 </div>
@@ -489,7 +503,7 @@
                 <div class="w-16 h-1.5 bg-brand-gradient mx-auto mt-4 rounded-full"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal slide-left relative">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-left relative">
                     <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
                     <p class="text-gray-600 mb-6 relative z-10 italic">"Excellent service! We booked a Tempo Traveller for our family trip to Ayodhya. The vehicle was clean and the driver was very polite."</p>
                     <div class="flex items-center">
@@ -500,7 +514,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal slide-up relative">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-up relative">
                     <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
                     <p class="text-gray-600 mb-6 relative z-10 italic">"Highly recommended for Outstation trips. We went to Kashi and Prayagraj. Smooth booking process via WhatsApp."</p>
                       <div class="flex items-center">
@@ -511,7 +525,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition reveal slide-right relative">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition transform hover:-translate-y-2 reveal slide-right relative">
                     <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
                     <p class="text-gray-600 mb-6 relative z-10 italic">"Best prices in Ayodhya. I compared many agencies but Bharat Travels gave the best deal for Innova Crysta."</p>
                       <div class="flex items-center">
@@ -557,7 +571,8 @@
                     <img src="https://5.imimg.com/data5/UB/TC/MY-23441034/30-seater-bus-for-rent-in-bangalore-32-seater-bus-hire-bangalore-1000x1000.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Bus">
                 </div>
                  <div class="overflow-hidden rounded-lg shadow-md group h-48">
-                    <img src="https://images.unsplash.com/photo-1594101895698-33306877477c?auto=format&fit=crop&w=800" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Temple">
+                    <!-- Updated Image Source -->
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/14504160832653175312" onclick="openLightbox(this.src)" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer" alt="Temple">
                 </div>
             </div>
         </div>
@@ -575,22 +590,22 @@
                     
                     <form id="bookingForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="col-span-2 md:col-span-1">
-                             <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition" placeholder="Your Name">
+                             <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition hover:shadow-sm" placeholder="Your Name">
                         </div>
                         <div class="col-span-2 md:col-span-1">
-                             <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition" placeholder="Mobile Number">
+                             <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition hover:shadow-sm" placeholder="Mobile Number">
                         </div>
                          <div class="col-span-2 md:col-span-1">
-                             <input type="text" id="pickup" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition" placeholder="Pickup Location">
+                             <input type="text" id="pickup" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition hover:shadow-sm" placeholder="Pickup Location">
                         </div>
                         <div class="col-span-2 md:col-span-1">
-                             <input type="text" id="drop" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition" placeholder="Drop Location">
+                             <input type="text" id="drop" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition hover:shadow-sm" placeholder="Drop Location">
                         </div>
                         <div class="col-span-2 md:col-span-1">
-                             <input type="date" id="date" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition">
+                             <input type="date" id="date" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition hover:shadow-sm">
                         </div>
                          <div class="col-span-2 md:col-span-1">
-                            <select id="vehicle" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition">
+                            <select id="vehicle" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition hover:shadow-sm">
                                 <option>Innova / Crysta</option>
                                 <option>Dzire / Sedan</option>
                                 <option>SUV (Scorpio/Fortuner)</option>
@@ -600,7 +615,7 @@
                             </select>
                         </div>
                          <div class="col-span-2">
-                             <textarea id="notes" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition" placeholder="Additional details (No. of passengers)..."></textarea>
+                             <textarea id="notes" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-brandPink focus:ring-2 focus:ring-brandPink/20 bg-gray-50 transition hover:shadow-sm" placeholder="Additional details (No. of passengers)..."></textarea>
                         </div>
 
                         <div class="col-span-2">
@@ -616,21 +631,21 @@
                      <div class="relative z-10 p-12 text-white h-full flex flex-col justify-center">
                          <h4 class="text-2xl font-bold mb-6">Contact Info</h4>
                           <div class="space-y-6">
-                            <div class="flex items-start gap-4">
+                            <div class="flex items-start gap-4 hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-location-dot text-brandPink text-xl mt-1"></i>
                                 <div>
                                     <h5 class="font-bold">Head Office</h5>
                                     <p class="text-gray-300 text-sm">Near Bus Stop, Naya Ghat,<br>Ayodhya, UP</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4">
+                            <div class="flex items-start gap-4 hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-phone text-brandPink text-xl mt-1"></i>
                                 <div>
                                     <h5 class="font-bold">Call Us</h5>
                                     <p class="text-gray-300 text-sm">+91 9984291310</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4">
+                            <div class="flex items-start gap-4 hover:translate-x-2 transition duration-300">
                                 <i class="fa-solid fa-envelope text-brandPink text-xl mt-1"></i>
                                 <div>
                                     <h5 class="font-bold">Email Us</h5>
@@ -649,7 +664,7 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <!-- Widget 1 -->
-                <div>
+                <div class="reveal slide-up delay-100">
                      <div class="flex items-center gap-2 mb-6">
                         <div class="w-8 h-8 rounded bg-brandPink flex items-center justify-center text-white font-bold">
                             <i class="fa-solid fa-route"></i>
@@ -660,51 +675,51 @@
                         Your trusted travel partner for safe, reliable, and comfortable journeys across Ayodhya and India.
                     </p>
                      <div class="flex gap-4">
-                        <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brandPink transition"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-                        <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brandPink transition"><i class="fa-brands fa-instagram text-xs"></i></a>
-                        <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brandPink transition"><i class="fa-brands fa-twitter text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brandPink transition hover:-translate-y-1"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brandPink transition hover:-translate-y-1"><i class="fa-brands fa-instagram text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brandPink transition hover:-translate-y-1"><i class="fa-brands fa-twitter text-xs"></i></a>
                     </div>
                 </div>
                 <!-- Widget 2 -->
-                <div>
+                <div class="reveal slide-up delay-200">
                     <h4 class="text-white font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#home" class="hover:text-brandPink transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600"></i> Home</a></li>
-                        <li><a href="#about" class="hover:text-brandPink transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600"></i> About Us</a></li>
-                        <li><a href="#fleet" class="hover:text-brandPink transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600"></i> Our Fleet</a></li>
-                        <li><a href="#packages" class="hover:text-brandPink transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600"></i> Packages</a></li>
-                        <li><a href="#contact" class="hover:text-brandPink transition flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600"></i> Contact</a></li>
+                        <li><a href="#home" class="hover:text-brandPink transition flex items-center group"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600 group-hover:text-brandPink transition"></i> Home</a></li>
+                        <li><a href="#about" class="hover:text-brandPink transition flex items-center group"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600 group-hover:text-brandPink transition"></i> About Us</a></li>
+                        <li><a href="#fleet" class="hover:text-brandPink transition flex items-center group"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600 group-hover:text-brandPink transition"></i> Our Fleet</a></li>
+                        <li><a href="#packages" class="hover:text-brandPink transition flex items-center group"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600 group-hover:text-brandPink transition"></i> Packages</a></li>
+                        <li><a href="#contact" class="hover:text-brandPink transition flex items-center group"><i class="fa-solid fa-chevron-right text-xs mr-2 text-gray-600 group-hover:text-brandPink transition"></i> Contact</a></li>
                     </ul>
                 </div>
                 <!-- Widget 3 -->
-                <div>
+                <div class="reveal slide-up delay-300">
                     <h4 class="text-white font-bold mb-6">Our Services</h4>
                     <ul class="space-y-3 text-sm">
-                        <li class="hover:text-brandPink transition">Local Sightseeing</li>
-                        <li class="hover:text-brandPink transition">Outstation Taxi</li>
-                        <li class="hover:text-brandPink transition">Airport Pickup</li>
-                        <li class="hover:text-brandPink transition">Wedding Car Rental</li>
-                        <li class="hover:text-brandPink transition">Corporate Travel</li>
+                        <li class="hover:text-brandPink transition cursor-pointer">Local Sightseeing</li>
+                        <li class="hover:text-brandPink transition cursor-pointer">Outstation Taxi</li>
+                        <li class="hover:text-brandPink transition cursor-pointer">Airport Pickup</li>
+                        <li class="hover:text-brandPink transition cursor-pointer">Wedding Car Rental</li>
+                        <li class="hover:text-brandPink transition cursor-pointer">Corporate Travel</li>
                     </ul>
                 </div>
                 <!-- Widget 4 -->
-                <div>
+                <div class="reveal slide-up delay-400">
                     <h4 class="text-white font-bold mb-6">We Accept</h4>
                     <div class="flex gap-2 flex-wrap mb-6">
-                        <i class="fa-brands fa-cc-visa text-3xl text-gray-500"></i>
-                        <i class="fa-brands fa-cc-mastercard text-3xl text-gray-500"></i>
-                        <i class="fa-brands fa-google-pay text-3xl text-gray-500"></i>
-                        <i class="fa-solid fa-money-bill text-3xl text-gray-500"></i>
+                        <i class="fa-brands fa-cc-visa text-3xl text-gray-500 hover:text-white transition"></i>
+                        <i class="fa-brands fa-cc-mastercard text-3xl text-gray-500 hover:text-white transition"></i>
+                        <i class="fa-brands fa-google-pay text-3xl text-gray-500 hover:text-white transition"></i>
+                        <i class="fa-solid fa-money-bill text-3xl text-gray-500 hover:text-white transition"></i>
                     </div>
                      <h4 class="text-white font-bold mb-2 text-sm">Need Help?</h4>
-                     <p class="text-brandPink font-bold text-lg">9984291310</p>
+                     <p class="text-brandPink font-bold text-lg hover:text-white transition cursor-pointer">9984291310</p>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-600 text-xs flex flex-col md:flex-row justify-between items-center">
                 <p>&copy; 2025 Bharat Tour & Travels. All Rights Reserved.</p>
                 <div class="mt-2 md:mt-0 space-x-4">
-                    <a href="#" class="hover:text-white">Privacy Policy</a>
-                    <a href="#" class="hover:text-white">Terms & Conditions</a>
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms & Conditions</a>
                 </div>
             </div>
         </div>
@@ -712,10 +727,10 @@
 
     <!-- Floating Buttons -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-        <a href="tel:9984291310" class="w-12 h-12 bg-white text-brandPink rounded-full shadow-lg flex items-center justify-center text-xl hover:bg-gray-50 transition border border-gray-100" title="Call Us">
+        <a href="tel:9984291310" class="w-12 h-12 bg-white text-brandPink rounded-full shadow-lg flex items-center justify-center text-xl hover:bg-gray-50 transition border border-gray-100 animate-heartbeat" title="Call Us">
             <i class="fa-solid fa-phone"></i>
         </a>
-        <a href="https://wa.me/919984291310" class="w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl flex items-center justify-center text-2xl hover:scale-110 transition animate-bounce" title="Chat on WhatsApp">
+        <a href="https://wa.me/919984291310" class="w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl flex items-center justify-center text-2xl hover:scale-110 transition animate-heartbeat" title="Chat on WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>
@@ -777,14 +792,42 @@
             window.open(`https://wa.me/919984291310?text=${message}`, '_blank');
         });
 
-        // Scroll Reveal
+        // Scroll Reveal and Counter Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    // Reveal Animation
                     entry.target.classList.add('active');
+
+                    // Counter Animation Trigger
+                    const counters = entry.target.querySelectorAll('.counter');
+                    if (counters.length > 0) {
+                        counters.forEach(counter => {
+                            const speed = 50; 
+                            const target = +counter.getAttribute('data-target');
+                            const count = +counter.innerText;
+                            
+                            // Only animate if not already animated
+                            if (count === 0) {
+                                const updateCount = () => {
+                                    const value = +counter.innerText;
+                                    const inc = target / speed;
+                                    
+                                    if (value < target) {
+                                        counter.innerText = Math.ceil(value + inc);
+                                        setTimeout(updateCount, 30);
+                                    } else {
+                                        counter.innerText = target;
+                                    }
+                                };
+                                updateCount();
+                            }
+                        });
+                    }
                 }
             });
         }, { threshold: 0.1 });
+        
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
